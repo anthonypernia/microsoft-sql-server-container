@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  microsoft-sql-server:
+    image: mcr.microsoft.com/mssql/server
+    container_name: microsoft-sql-server
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+      - SA_PASSWORD=yourStrong(!)Password
+      - MSSQL_SA_PASSWORD=yourStrong(!)Password
+    volumes:
+      - ./data:/var/opt/mssql
+volumes:
+  data:
